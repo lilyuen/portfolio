@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilian Yuen - Brand Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #fafaf8;
+            --secondary-bg: #f5f5f0;
+            --accent: #2d3436;
+            --accent-warm: #d4a574;
+            --text-primary: #1a1a1a;
+            --text-secondary: #6c6c6c;
+            --border: #e8e8e3;
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(250, 250, 248, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-warm);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 3rem;
+            overflow: hidden;
+            border: 0px solid var(--accent-warm);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease 0.1s both;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-warm), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-description {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Decorative element */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05));
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 8rem 5% 6rem;
+            background: var(--secondary-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: white;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .portfolio-item:nth-child(1) { animation-delay: 0.1s; }
+        .portfolio-item:nth-child(2) { animation-delay: 0.2s; }
+        .portfolio-item:nth-child(3) { animation-delay: 0.3s; }
+        .portfolio-item:nth-child(4) { animation-delay: 0.4s; }
+        .portfolio-item:nth-child(5) { animation-delay: 0.5s; }
+        .portfolio-item:nth-child(6) { animation-delay: 0.6s; }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-category {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-thumbnails {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            display: none;
+            gap: 0.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-thumbnails {
+            transform: translateY(0);
+        }
+
+        .portfolio-thumb-mini {
+            width: 50px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.6);
+            overflow: hidden;
+        }
+
+        .portfolio-thumb-mini img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-image-count {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .portfolio-image-count::before {
+            content: '📷';
+            font-size: 0.9rem;
+        }
+
+        /* Placeholder for images */
+        .portfolio-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f5f0, #e8e8e3);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 5%;
+            background: var(--primary-bg);
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: var(--text-primary);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .contact-item a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent-warm);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-warm);
+        }
+
+        .contact-item a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-warm);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 5%;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Modal/Lightbox */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        .modal-main {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .modal-gallery {
+            flex: 1;
+            position: relative;
+        }
+
+        .modal-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/8;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .modal-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f5f5f0, #e8e8e3);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            color: var(--text-secondary);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-prev {
+            left: -25px;
+        }
+
+        .modal-next {
+            right: -25px;
+        }
+
+        .modal-thumbnails {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            overflow-x: auto;
+            padding: 0.5rem 0;
+        }
+
+        .modal-thumb {
+            width: 80px;
+            height: 60px;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            flex-shrink: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-thumb.active,
+        .modal-thumb:hover {
+            opacity: 1;
+        }
+
+        .modal-thumb-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .modal-info {
+            width: 350px;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .modal-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .modal-category {
+            color: var(--accent-warm);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .modal-description {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-detail {
+            display: none;
+            gap: 1rem;
+        }
+
+        .modal-detail-label {
+            Display: none;
+            font-weight: 500;
+            min-width: 80px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .modal-detail-value {
+            color: white;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .image-counter {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .modal-main {
+                flex-direction: column;
+            }
+
+            .modal-info {
+                width: 100%;
+            }
+
+            .modal-nav {
+                top: auto;
+                bottom: 100px;
+            }
+
+            .modal-prev {
+                left: 1rem;
+            }
+
+            .modal-next {
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 5%;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                margin-top: 60px;
+            }
+
+            .modal-content {
+                padding: 2rem 5%;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">LILIAN YUEN</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero / About Section -->
+    <section id="about" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <!-- Replace with your actual image: <img src="images/profile.jpg" alt="Lilian Yuen"> -->
+                <div class="hero-image"><img src="images/headshot.png" alt="Lilian Yuen"></div>
+            </div>
+            <h1>Hello.</h1>
+            <p class="hero-subtitle">I'm Lilian.</p>
+            <p class="hero-description">
+                A visual storyteller who loves creating meaningful experiences through thoughtful design. Specializing in brand identity, editorial design, and creative direction 
+that connects with audiences.
+            </p>
+            <a href="#work" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="work" class="portfolio">
+        <div class="section-header">
+            <h2 class="section-title">Selected Work</h2>
+            <p class="section-subtitle">Recent Projects</p>
+        </div>
+        
+        <div class="portfolio-grid"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <div class="section-header">
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Get in Touch</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="mailto:lilianlyyuen@gmail.com">lilianlyyuen@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <a href="tel:6472865345">+1 (648) 286-5345</a>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/lilianlyyuen/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal/Lightbox -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal()">×</div>
+            <div class="modal-main">
+                <div class="modal-gallery">
+                    <div class="modal-image-container">
+                        <div class="image-counter">
+                            <span id="currentImage">1</span> / <span id="totalImages">1</span>
+                        </div>
+                        <div id="modalImageDisplay"></div>
+                    </div>
+                    <div class="modal-nav modal-prev" onclick="previousImage()">‹</div>
+                    <div class="modal-nav modal-next" onclick="nextImage()">›</div>
+                    <div id="modalThumbnails" class="modal-thumbnails"></div>
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title" id="modalTitle"></h3>
+                    <p class="modal-category" id="modalCategory"></p>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-details">
+                        <div class="modal-detail">
+                            <span class="modal-detail-label">Client:</span>
+                            <span class="modal-detail-value" id="modalClient"></span>
+                        </div>
+                        <div class="modal-detail">
+                            <span class="modal-detail-label">Year:</span>
+                            <span class="modal-detail-value" id="modalYear"></span>
+                        </div>
+                        <div class="modal-detail">
+                            <span class="modal-detail-label">Role:</span>
+                            <span class="modal-detail-value" id="modalRole"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Lilian Yuen. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Project data - You can add your actual images here
+        const projects = [
+            {
+                id: 1,
+                title: "ATB Financial",
+                category: "Print and Digital Collateral",
+                description: "Created a range of print and digital collateral for ATB Financial, including white papers, brochures, and presentations. Each piece was designed to communicate complex information clearly while maintaining a cohesive visual system. All work aligned closely with ATB Financial’s established brand guidelines to ensure consistency across touchpoints.",
+                client: "Example Co.",
+                year: "2024",
+                role: "Lead Designer",
+                images: [
+                    { type: 'image', src: "images/1ATBa.png", number: '01' },
+                    { type: 'image', src: "images/1ATBb.png", number: '01-B' },
+                    { type: 'image', src: "images/1ATBc.png", number: '01-C' },
+                ]
+            },
+            {
+                id: 2,
+                title: "Bank of Montreal",
+                category: "Print and Digital Collateral",
+                description: "Supported the development of brochures and marketing collateral for BMO, focusing on clarity, structure, and audience-friendly design. Translated complex financial content into clean, accessible layouts across print and digital formats. Maintained strong alignment with BMO’s brand standards while introducing subtle refinements to enhance consistency and readability.",
+                client: "Magazine Inc.",
+                year: "2024",
+                role: "Art Director",
+                images: [
+                    { type: 'image', src: "images/2_Whitepaper_BMO_a.png", number: '03' },
+                    { type: 'image', src: "images/2_Whitepaper_BMO_b.png", number: '03' }
+                ]
+            },
+            
+            {
+                id: 4,
+                title: "Various Pitch Decks",
+                category: "-",
+                description: "Designed pitch deck layouts that bring clarity and momentum to complex narratives. Focused on hierarchy, pacing, and visual consistency to guide audiences through key ideas with ease. Balanced strong storytelling with clean, on-brand design across each slide.",
+                client: "Tech Startup",
+                year: "2023",
+                role: "Creative Director",
+                images: [
+                    { type: 'image', src: "images/3presentationsamples.png", number: '04' },
+                    { type: 'image', src: "images/3presentationsamples-1.png", number: '04-B' },
+                    { type: 'image', src: "images/3presentationsamples-2.png", number: '04-C' },
+                    { type: 'image', src: "images/4_Pitchbook_a.png", number: '04-D' },
+                    { type: 'image', src: "images/4_Pitchbook_b.png", number: '04-E' }
+
+                ]
+            },
+
+{
+                id: 3,
+                title: "Canada Post",
+                category: "Smartmoves Program and the Your Neighbourhood Calendar",
+                description: "Developed and delivered integrated customer engagement initiatives for Canada Post, including the Smartmoves Program and the Your Neighbourhood Calendar. These programs combined personalized messaging across digital and print channels to create cohesive, targeted communication campaigns that enhanced relevance and response at the local level.",
+                client: "Green Products",
+                year: "2023",
+                role: "Designer",
+                images: [
+                    { type: 'image', src: "images/3calendar.png", number: '02' },
+                    { type: 'image', src: "images/3movers-sellsheet.png", number: '02-B' },
+                ]
+            },
+           
+            {
+                id: 6,
+                title: "Breo Canada",
+                category: "Digital and Print Experience",
+                description: "Supported Breo Canada, a premium portable wellness massager brand, by building and maintaining its eCommerce platform. Developed cohesive omnichannel brand experiences through strategic content marketing, web design, and digital storytelling. Helped elevate brand presence and customer engagement across digital touchpoints.",
+                client: "",
+                year: "",
+                role: "",
+                images: [
+                    { type: 'image', src: "images/6 breowebsite.png", number: '06' },
+                    { type: 'image', src: "images/6 breowebsite-1.png", number: '06-B' }
+                ]
+            },
+ {
+                id: 5,
+                title: "Indigo Books and Music",
+                category: "Digital Experience",
+                description: "Created visually compelling, on-brand digital assets for Indigo’s B2C email campaigns, enhancing customer engagement and campaign consistency. Led the eCommerce style guide initiative, developing wireframes, art direction (including camera angles, lighting, and styling), and a cohesive visual identity. Applied standardized design principles across 16+ brands to ensure a unified and scalable digital experience.",
+                client: "",
+                year: "",
+                role: "",
+                images: [
+                    { type: 'image', src: "images/5 Indigo.png", number: '05' },
+                    { type: 'image', src: "images/5 Indigo2.png", number: '05-B' },
+                    { type: 'image', src: "images/5 Indigo-1.png", number: '05-C' }
+                ]
+            },
+
+	     {
+                id: 7,
+                title: "Tapagria Restaurant",
+                category: "Restaurant Branding",
+                description: "Tapagria redefines the Spanish dining experience through a lens of modern minimalism and effortless sophistication. The visual identity balances the storied tradition of small-plate culture with a clean, contemporary aesthetic that speaks to an upscale clientele. It is a brand built on the belief that the finest flavors deserve an atmosphere of understated, timeless elegance.",
+                client: "Corporate Client",
+                year: "2022",
+                role: "Designer",
+                images: [
+                    { type: 'image', src: "images/7tapagria.png", number: '07' },
+                    { type: 'image', src: "images/7tapagriaa.png", number: '07-B' },
+                    { type: 'image', src: "images/7tapagriab.png", number: '07-C' },
+                    { type: 'image', src: "images/7tapagriac.png", number: '07-D' }
+                ]
+            },
+
+	     {
+                id: 8,
+                title: "Organisk Sustainable Footwear",
+                category: "Personal Project",
+                description: "Organisk is built on the philosophy that high-performance footwear should feel like a natural extension of the athlete and the environment. By stripping away visual clutter, the brand achieves a sophisticated minimalism that prioritizes clarity, purpose, and sustainable innovation. The aesthetic is intentionally <quiet>, allowing the quality of the materials and the fluidity of the movement to take center stage. Ultimately, this direction positions Organisk not just as a product, but as a revitalizing lifestyle choice for the conscious mover.",
+                client: "Corporate Client",
+                year: "2022",
+                role: "Designer",
+                images: [
+                    { type: 'image', src: "images/8organisk.png", number: '08' },
+                    { type: 'image', src: "images/8aorganisk.png", number: '08-B' },
+                    { type: 'image', src: "images/8organisk-1.png", number: '08-C' }
+                ]
+            }
+
+        ];
+
+        let currentProject = null;
+        let currentImageIndex = 0;
+
+function renderPortfolio() {
+    const grid = document.querySelector('.portfolio-grid');
+    grid.innerHTML = '';
+
+    projects.forEach((project, index) => {
+        const item = document.createElement('div');
+        item.className = 'portfolio-item';
+        item.style.animationDelay = `${0.1 * (index + 1)}s`;
+
+        const firstImage = project.images[0];
+
+        let mainVisual = '';
+        if (firstImage.type === 'placeholder') {
+            mainVisual = `<div class="portfolio-placeholder">${firstImage.number}</div>`;
+        } else {
+            mainVisual = `<img src="${firstImage.src}" class="portfolio-image">`;
+        }
+
+        const thumbs = project.images.map(img => {
+            if (img.type === 'placeholder') {
+                return `<div class="portfolio-thumb-mini">${img.number}</div>`;
+            } else {
+                return `<div class="portfolio-thumb-mini">
+                            <img src="${img.src}">
+                        </div>`;
+            }
+        }).join('');
+
+        item.innerHTML = `
+            ${mainVisual}
+            <div class="portfolio-image-count">${project.images.length}</div>
+            <div class="portfolio-overlay">
+                <h3 class="portfolio-title">${project.title}</h3>
+                <p class="portfolio-category">${project.category}</p>
+            </div>
+            <div class="portfolio-thumbnails">${thumbs}</div>
+        `;
+
+        item.addEventListener('click', () => openModal(project.id));
+
+        // 👇 move observer here
+        observer.observe(item);
+
+        grid.appendChild(item);
+    });
+}
+
+
+        // Open modal with project
+        function openModal(projectId) {
+            currentProject = projects.find(p => p.id === projectId);
+            currentImageIndex = 0;
+            
+            const modal = document.getElementById('portfolioModal');
+            document.getElementById('modalTitle').textContent = currentProject.title;
+            document.getElementById('modalCategory').textContent = currentProject.category;
+            document.getElementById('modalDescription').textContent = currentProject.description;
+            document.getElementById('modalClient').textContent = currentProject.client;
+            document.getElementById('modalYear').textContent = currentProject.year;
+            document.getElementById('modalRole').textContent = currentProject.role;
+            document.getElementById('totalImages').textContent = currentProject.images.length;
+            
+            // Load thumbnails
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+            currentProject.images.forEach((img, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'modal-thumb' + (index === 0 ? ' active' : '');
+                thumb.onclick = () => showImage(index);
+                
+                if (img.type === 'placeholder') {
+                    thumb.innerHTML = `<div class="modal-thumb-placeholder">${img.number}</div>`;
+                } else {
+                    thumb.innerHTML = `<img src="${img.src}" style="width:100%;height:100%;object-fit:cover;">`;
+                }
+                thumbContainer.appendChild(thumb);
+            });
+            
+            showImage(0);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('portfolioModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Show specific image
+        function showImage(index) {
+            currentImageIndex = index;
+            const imageDisplay = document.getElementById('modalImageDisplay');
+            const img = currentProject.images[index];
+            
+            if (img.type === 'placeholder') {
+                imageDisplay.innerHTML = `<div class="modal-placeholder">${img.number}</div>`;
+            } else {
+                imageDisplay.innerHTML = `<img src="${img.src}" class="modal-image" alt="${currentProject.title}">`;
+            }
+            
+            document.getElementById('currentImage').textContent = index + 1;
+            
+            // Update thumbnail active state
+            const thumbs = document.querySelectorAll('.modal-thumb');
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
+        }
+
+        // Navigate to next image
+        function nextImage() {
+            const nextIndex = (currentImageIndex + 1) % currentProject.images.length;
+            showImage(nextIndex);
+        }
+
+        // Navigate to previous image
+        function previousImage() {
+            const prevIndex = (currentImageIndex - 1 + currentProject.images.length) % currentProject.images.length;
+            showImage(prevIndex);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('portfolioModal');
+            if (modal.classList.contains('active')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') previousImage();
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('portfolioModal').addEventListener('click', (e) => {
+            if (e.target.id === 'portfolioModal') {
+                closeModal();
+            }
+        });
+
+        // Add click handlers to portfolio items
+document.addEventListener('DOMContentLoaded', () => {
+    renderPortfolio();
+});
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe portfolio items
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            observer.observe(item);
+        });
+
+
+
+    </script>
+</body>
+</html>
